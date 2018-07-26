@@ -15,12 +15,6 @@ Documentation
 
 文档地址：[ThinkAdmin 开发文档](https://www.kancloud.cn/zoujingli/thinkadmin/content)
 
-
-PHP开发技术交流（QQ群 513350915）
-
-[![PHP微信开发群 (SDK)](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=ae25cf789dafbef62e50a980ffc31242f150bc61a61164458216dd98c411832a) 
-
-
 Repositorie
 --
  ThinkAdmin 为开源项目，允许把它用于任何地方，不受任何约束，欢迎 fork 项目。
@@ -118,7 +112,3 @@ Copyright
 * ThinkAdmin 基于`MIT`协议发布，任何人可以用在任何地方，不受约束
 * ThinkAdmin 部分代码来自互联网，若有异议，可以联系作者进行删除
 
-
-Sponsor
---
-![赞助](http://zoujingli.oschina.io/static/pay.png)
