@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>下载</title>
+        <script src="__STATIC__/plugs/jquery/jquery.min.js"></script>
+        <script>
+        	$(function () {
+        		var url = "{$url}";
+        		if( url == "error" ) {
+        			$("#info").html("获取下载文件失败！");
+        		}
+
+        		getDownloadUrl();
+        	});
+
+        	function getDownloadUrl() {
+        		$.get("{$url}", function(msg) {
+        			//$("#info").html(msg["code"] + " | " + msg["msg"] + " | " + msg["data"]);
+
+        			if( 100 == msg["code"] ) {
+        				$("#info").html("<a href=\"" + msg["data"] + "\">点击下载</a>")
+        				window.location.href = msg["data"];
+        			} else {
+        				setTimeout("getDownloadUrl()", 1000);
+        			}
+        		});
+        	}
+        </script>
+	</head>
+	<body>
+		<div id="info">Download ...</div>
+	</body>
+</html>

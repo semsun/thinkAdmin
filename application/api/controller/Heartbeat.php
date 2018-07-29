@@ -12,38 +12,19 @@ class Heartbeat extends BasicApi
     public function index()
     {
 		$getData = $this->request->get();
-		if( isset($getData["mechine_no"]) ) {
-			$mechine_no = $getData["mechine_no"];
+		if( isset($getData["machine_no"]) ) {
+			$machine_no = $getData["machine_no"];
 		} else {
-			$this->error("lost param mechine_no", null, 401);
+			$this->error("lost param machine_no", null, 401);
 		}
-		$msgList = MessageCache::getMessages($mechine_no);
-		
-		return $this->success("OK", $msgList, 0);
-    }
+		$msgList = MessageCache::getMessages($machine_no);
 
-    public function saveFileRecord() {
-		$data = FileRecordService::createFileRecord("123", "456", "filePath");
-		return implode("_", $data);
-    }
-
-    public function queryFileRecord() {
-		$where = ["file_no"=>"1"];
-		//$where = [];
-		$ret = FileRecordService::queryFileRecord($where);
-		$str = json_encode($ret);
-		return $str;
-    }
-
-    public function updateFileRecord() {
-		$data = ["upload_time" => date("Y-m-d H:i:s")];
-
-		$ret = FileRecordService::updateFileRecord("1", $data);
-		
-		if( $ret ) {
-			return "OK";
+		$code = 0;
+		if( $msgList && count($msgList) > 0 ) {
+			$code = 100;
 		}
-		return "Failed";
+
+		return $this->success("Beat", $msgList, $code);
     }
 
 }

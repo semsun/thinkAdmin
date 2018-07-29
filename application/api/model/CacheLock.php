@@ -14,8 +14,8 @@ interface ILock
 class CacheLock implements ILock { 
 	const LOCK_PRE = "message_lock_";
 	
-	public static function tryLock($mechine_no, $timeout=self::EXPIRE) {
-		$key = self::LOCK_PRE . $mechine_no;
+	public static function tryLock($machine_no, $timeout=self::EXPIRE) {
+		$key = self::LOCK_PRE . $machine_no;
 		
 		$waitime = 20000;
 		$totalWaitime = 0;
@@ -33,8 +33,8 @@ class CacheLock implements ILock {
 		if ($totalWaitime >= $time) return false;
 	}
 
-	public static function unLock($mechine_no) {
-		$key = self::LOCK_PRE . $mechine_no;
+	public static function unLock($machine_no) {
+		$key = self::LOCK_PRE . $machine_no;
 
 		Cache::rm($key);
 	}
